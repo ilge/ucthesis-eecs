@@ -1,0 +1,130 @@
+\documentclass[12pt, oneside]{lib/ucthesis}
+\def\ssp{\def\baselinestretch{1.0}\large\normalsize}
+\ssp
+\usepackage{subfiles}
+
+\pdfinfo{
+       /Title      (U. C. Berkeley Dissertation)
+       /Author     ()
+       /Keywords   ()
+    }
+% This gives you control over how far down in the hierarchy the
+% table of contents will print. I use 2.
+\setcounter{tocdepth}{1}
+\setcounter{secnumdepth}{3}
+\setlength{\parindent}{5ex}
+
+% \include{chapters/preamble}
+
+% \graphicspath{{resources/}}
+
+\newcommand\degrees{\ensuremath{^\circ}}
+\newcommand{\tab}{\hspace{5mm}}
+\newcommand{\blankpage}{\clearpage ~ \newpage}
+
+\pagestyle{headings}
+% ========================================= DOCUMENT
+\begin{document}
+
+% Declarations for Front Matter
+
+% TITLE
+\title{Title Goes Here}
+% Note that this must be exactly as it appears in University records.
+\author{Thesis Author}
+
+% PREVIOUS DEGREES
+% Put each previous degree on its own line in the following format:
+\prevdegrees{} % Optional 
+
+% DATE OF GRADUATION
+% This text will appear on the title page
+% Note that degrees are only granted in Fall and Spring at Berkeley.
+% This text will appear on the abstract page.
+% For Berkeley, it should be identical to the graduation month.
+\degreeyear{2016}
+\degreemonth{Fall}
+\defensemonth{Spring}
+\defenseyear{2016}
+
+\degree{Doctor of Philosophy}
+% COMMITTEE MEMBERS
+% You can have up to 5 members listed separately. 
+%After that, you throw them all into the "other members" category.
+\numberofmembers{3} 
+	\chair{Professor Committee Chair} 
+	\othermemberA{Professor Member 1}
+	\othermemberB{Professor Member 2} 
+	
+% DEPARTMENT/DEGREE PROGRAM
+%Your Department. Make sure this is the department and/or program
+% name that you are enrolled in...
+\field{Engineering - Electrical Engineering and Computer Sciences} 
+
+% CAMPUS NAME
+% Your UC Campus, e.g., "Berkeley"
+% Note that if you are not at Berkeley, you may have to modify the\vspace{12pt}
+% ucthesis.cls to change the wording on the Title page.
+\campus{Berkeley}
+
+\begin{frontmatter} 
+\maketitle
+\approvalpage
+\copyrightpage
+\abstract
+	Include abstract file...
+	\abstractsignature
+\endabstract
+
+\end{frontmatter}
+\begin{optionalFrontMatter}
+% ===============================================
+% OPTIONAL MATERIAL
+% Everything after this is optional and can appear in any order
+% you desire.
+\begin{dedication}
+% Prints the text of the file dedication.tex centered vertically on the page.
+	\vspace*{\fill} 
+	To my parents.
+	\vspace*{\fill} 
+\end{dedication}
+\end{optionalFrontMatter}
+\addcontentsline{toc}{chapter}{Contents}
+
+\tableofcontents
+\listoffigures 
+\listoftables
+
+\begin{acknowledgements}
+\thispagestyle{plain}
+	% \subfile{chapters/acknowledgements} 
+\end{acknowledgements}
+
+%%%% END FRONT MATTER...
+
+
+% ============================= DISSERTATION TEXT
+% Begins regular arabic numeral page numbers...
+% CHAPTERS
+
+\begin{dissertationText}
+\chapter{Introduction}
+	\subfile{chapters/chapter1}
+\chapter{Background}~\label{chapter:background}
+	\subfile{chapters/chapter1}
+\chapter[Short Title]{Long Title}
+	\subfile{chapters/chapter1}
+
+\ssp	% SINGLE SPACE REFERENCES (optional)
+\bibliographystyle{plain}
+\bibliography{references}
+
+% ------------------- OPTIONAL APPENDICES
+\appendix
+\chapter{Appendix Chapter}~\label{sec:appendix-pf}
+	\subfile{chapters/chapter1}
+
+\end{dissertationText}
+\end{document}
+
+% Congratulations, Doc!
